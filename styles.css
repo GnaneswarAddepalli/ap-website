@@ -143,6 +143,59 @@ main {
     color: var(--primary-color);
 }
 
+.initiatives {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.initiatives h2 {
+    font-size: 2.5rem;
+    color: #006a4e;
+    margin-bottom: 30px;
+}
+
+.initiative {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.initiative h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.initiative p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.initiative:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Grid for Larger Screens */
+@media (min-width: 768px) {
+    .initiatives {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .initiative {
+        flex: 1;
+        max-width: 320px;
+    }
+}
+
 
 /* Stats Section */
 .stats {
