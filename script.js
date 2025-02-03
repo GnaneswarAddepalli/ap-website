@@ -58,3 +58,17 @@ document.addEventListener('DOMContentLoaded', function() {
         hero.style.backgroundPositionY = scrollPosition * 0.7 + 'px';
     });
 });
+
+
+
+let currentSlide = 0;
+const slides = document.querySelectorAll(".testimonial-slide");
+
+function changeSlide(direction) {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    slides[currentSlide].classList.add("active");
+}
+
+// Auto-slide every 5 seconds
+setInterval(() => changeSlide(1), 5000);
