@@ -490,17 +490,17 @@ footer {
 
 
 
-/* Navbar Styling */
+/* Basic Styling */
 nav {
     background: #006a4e;
     padding: 15px 20px;
+    position: relative;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
     padding: 0;
     margin: 0;
 }
@@ -514,6 +514,8 @@ nav ul li a {
     color: white;
     font-size: 1rem;
     font-weight: 600;
+    padding: 10px 15px;
+    display: inline-block;
     transition: color 0.3s ease-in-out;
 }
 
@@ -522,7 +524,7 @@ nav ul li a.active {
     color: #ffd700;
 }
 
-/* Mobile Menu Button */
+/* Mobile Menu Button (Hamburger) */
 .menu-toggle {
     display: none;
     font-size: 1.8rem;
@@ -535,7 +537,7 @@ nav ul li a.active {
     right: 20px;
 }
 
-/* Mobile Responsive Design */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -565,3 +567,4 @@ nav ul li a.active {
         font-size: 1.2rem;
     }
 }
+
