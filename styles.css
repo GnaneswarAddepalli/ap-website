@@ -115,18 +115,21 @@ main {
     display: flex;
     justify-content: space-around;
     padding: 5rem 10%;
-    background-color: #fff;
+    background-color: #f8f9fa;
 }
 
 .feature {
     text-align: center;
     padding: 2rem;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature:hover {
     transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .feature i {
@@ -139,6 +142,7 @@ main {
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
+
 
 /* Stats Section */
 .stats {
