@@ -75,9 +75,12 @@ setInterval(() => changeSlide(1), 5000);
 
 
 
+// Get the menu toggle button and the navbar links
 const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+const navLinks = document.querySelector("nav ul");
 
+// When the hamburger button is clicked, toggle the 'active' class to show/hide the menu
 menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
+
