@@ -46,6 +46,10 @@ header {
 }
 
 nav {
+    background: #ffffff;
+}
+
+nav {
     display: flex;
     align-items: center;
 }
