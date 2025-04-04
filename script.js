@@ -1,28 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Header: Menu toggle functionality
     const menuToggle = document.querySelector('.menu-toggle');
-    const navContainer = document.querySelector('.nav-container');
+    const navLinks = document.querySelector('.nav-links');
 
     menuToggle.addEventListener('click', () => {
-        navContainer.classList.toggle('active');
-        const isActive = navContainer.classList.contains('active');
+        navLinks.classList.toggle('active');
+        const isActive = navLinks.classList.contains('active');
         menuToggle.innerHTML = `<i class="fas fa-${isActive ? 'times' : 'bars'}"></i>`;
     });
 
     // Header: Highlight current page in navigation
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
     });
 
     // Header: Close mobile menu when a link is clicked
-    navLinks.forEach(link => {
+    navItems.forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
-                navContainer.classList.remove('active');
+                navLinks.classList.remove('active');
                 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
