@@ -1,11 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Highlight current page in navigation
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('nav a');
+    // Header: Menu toggle functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navContainer = document.querySelector('.nav-container');
+
+    menuToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+        const isActive = navContainer.classList.contains('active');
+        menuToggle.innerHTML = `<i class="fas fa-${isActive ? 'times' : 'bars'}"></i>`;
+    });
+
+    // Header: Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
+    });
+
+    // Header: Close mobile menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                navContainer.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
     });
 
     // Animate stats when in viewport
@@ -57,30 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollPosition = window.pageYOffset;
         hero.style.backgroundPositionY = scrollPosition * 0.7 + 'px';
     });
-});
 
-
-
-let currentSlide = 0;
-const slides = document.querySelectorAll(".testimonial-slide");
-
-function changeSlide(direction) {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    // Testimonial slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".testimonial-slide");
     slides[currentSlide].classList.add("active");
-}
 
-// Auto-slide every 5 seconds
-setInterval(() => changeSlide(1), 5000);
+    window.changeSlide = function(direction) {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add("active");
+    };
 
-
-
-// Get the menu toggle button and the navbar links
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector("nav ul");
-
-// When the hamburger button is clicked, toggle the 'active' class to show/hide the menu
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+    // Auto-slide every 5 seconds
+    setInterval(() => window.changeSlide(1), 5000);
 });
-
