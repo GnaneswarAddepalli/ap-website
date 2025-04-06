@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Header: Menu toggle functionality
+    // Menu toggle functionality for the header
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.innerHTML = `<i class="fas fa-${isActive ? 'times' : 'bars'}"></i>`;
     });
 
-    // Header: Highlight current page in navigation
+    // Highlight the current page in navigation
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(link => {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Header: Close mobile menu when a link is clicked
+    // Close mobile menu when a link is clicked
     navItems.forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animate stats when in viewport
+    // Animate stats when they come into view
     const stats = document.querySelectorAll('.stat-number');
     const options = {
         threshold: 0.5
